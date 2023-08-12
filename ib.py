@@ -114,7 +114,7 @@ print("\033[1;33;40m", end = "")
 sp(" Enter Your Inbox/Convo Conversation Id :\n")
 print("\033[1;37;40m")
 cid = str(input())
-curl = 'https://m.facebook.com/messages/t/' + str(cid)
+curl = 'https://mbasic.facebook.com/messages/t/' + str(cid)
 
 print("\033[1;33;40m", end = "")
 sp(" Notepad Link :")
