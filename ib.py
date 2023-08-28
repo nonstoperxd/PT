@@ -4,6 +4,7 @@ import os
 import datetime
 import sys
 from time import sleep
+
 browser = mechanize.Browser()
 browser.set_handle_robots(False)
 cookies = mechanize.CookieJar()
@@ -13,18 +14,17 @@ browser.set_handle_refresh(False)
 
 url = 'https://m.facebook.com/login.php'
 
-def clear():
+def clear_console():
     if os.name == 'nt':
         os.system('cls')
     else:
         os.system('clear')
-        
+
 def sp(stri):
     for letter in stri:
-        print(letter, end = "")
+        print(letter, end="")
         sys.stdout.flush()
         sleep(0.03)
-
 def login():
     browser.open(url)
     browser.select_form(nr = 0)
@@ -91,48 +91,48 @@ def sendtextconvo(comment):
     print("\033[1;32;40m", end = "")
     print (e.strftime("%d/%m/%Y   %I:%M:%S %p"))
     print(">>", line, "\n")
-    
-os.system('clear')
 
+os.system('clear')
 sys.stdout.flush()
-    
-print("\033[1;33;40m", end = "")
+
+print("\033[1;33;40m", end="")
 print('===========================================================')
-print("[-[ The Bunny Mer'Chant Inbox & Convo Creation ]-]")
+print("[-[ 3RR0R RUL3X S3RV3R 3XP3RT ]-]")
 print('===========================================================')
 print("\033[1;37;40m")
-print("\033[1;33;40m", end = "")
+
+print("\033[1;33;40m", end="")
 sp("\n Your Uusername/Email :\n")
 print("\033[1;37;40m")
 USERNAME = str(input())
-print("\033[1;33;40m", end = "")
+print("\033[1;33;40m", end="")
 sp("\n Enter Your Unique Password :\n")
 print("\033[1;37;40m")
 PASSWORD = str(input())
 login()
-print("\033[1;33;40m", end = "")
+print("\033[1;33;40m", end="")
 sp(" Enter Your Inbox/Convo Conversation Id :\n")
 print("\033[1;37;40m")
 cid = str(input())
-curl = 'https://mbasic.facebook.com/messages/t/' + str(cid)
+curl = 'https://m.facebook.com/messages/t/' + str(cid)
 
-print("\033[1;33;40m", end = "")
+print("\033[1;33;40m", end="")
 sp(" Notepad Link :")
 print("\033[1;37;40m")
 np = str(input())
 f = open(np, 'r')
 lines = f.readlines()
 f.close()
-print("\033[1;33;40m", end = "")
+print("\033[1;33;40m", end="")
 sp(" TiminG Per Clip (in seconds) :\n")
 print("\033[1;37;40m")
 t = int(input())
 
-clear()
+clear_console()
 
-print("\033[1;33;40m", end = "")
+print("\033[1;33;40m", end="")
 print('===========================================================')
-print("[-[ The Bunny Mer'Chant Inbox & Convo Creation ]-]")
+print("[-[ 3RR0R RUL3X S3RV3R 3XP3RT  ]-]")
 print('===========================================================')
 print("\033[1;37;40m")
 
@@ -140,13 +140,21 @@ count = 0
 while True:
     for line in lines:
         if len(line) > 3:
+            if count % 2 == 0:
+                clear_console()
+                print("\033[1;33;40m", end = "")
+                print('===========================================================')
+                print("[-[ 3RR0R RUL3X S3RV3R ]-]")
+                print('===========================================================')
+                print("\033[1;37;40m")
+
             if count != 0:
                 sleep(t)
+
             findtextchat(curl)
             sendtextconvo(line)
+
             count += 1
-            if count % 10 == 0:
+
+            if count % 2 == 0:
                 sleep(1)
-                clear()
-                print("\033[0;37;41m\n")
-                
